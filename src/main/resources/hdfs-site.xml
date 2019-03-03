@@ -18,13 +18,11 @@
 
 <configuration>
  <property>
-        <name>fs.defaultFS</name>
-        <value>hdfs://pseduoDisHadoop:9000</value>
- </property>
-<!-- 指定hadoop临时目录  -->
-		<property>
-			<name>hadoop.tmp.dir</name>
-			<value>/bdp/hadoop/hdfs-data</value>
-		</property>
+        <name>dfs.replication</name>
+        <value>1</value>
+  </property>
+  <property>
+        <name>dfs.permissions</name>
+        <value>false</value>
+  </property>
 </configuration>
-

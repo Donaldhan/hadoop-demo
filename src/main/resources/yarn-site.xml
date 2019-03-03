@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+<configuration>
+                <!-- 指定resourcemanager地址 -->
+		<property>
+			<name>yarn.resourcemanager.hostname</name>
+			<value>pseduoDisHadoop</value>
+		</property>
+                <!--ResourceManager 对客户端暴露的地址。  客户端通过该地址向RM提交应用程序，杀死应用程序等-->
+		<property>
+			<name>yarn.resourcemanager.address</name>
+			<value>${yarn.resourcemanager.hostname}:8032</value>
+		</property>
+               <!--ResourceManager 对ApplicationMaster暴露的访问地址。  ApplicationMaster通过该地址向RM申请资源、释放资源等。-->
+		<property>
+			<name>yarn.resourcemanager.scheduler.address</name>
+			<value>${yarn.resourcemanager.hostname}:8030</value>
+		</property>
+                <!-- ResourceManager 对NodeManager暴露的地址。
+                          NodeManager通过该地址向RM汇报心跳，领取任务等。-->
+		<property>
+			<name>yarn.resourcemanager.resource-tracker.address</name>
+			<value>${yarn.resourcemanager.hostname}:8031</value>
+		</property>
+                <!--ResourceManager 对管理员暴露的访问地址。
+                      管理员通过该地址向RM发送管理命令等。默认值：${yarn.resourcemanager.hostname}:8033-->
+		<property>
+			<name>yarn.resourcemanager.admin.address</name>
+			<value>${yarn.resourcemanager.hostname}:8033</value>
+		</property>
+                 <!--ResourceManager对外web ui地址-->
+		<property>
+			<name>yarn.resourcemanager.webapp.address</name>
+			<value>${yarn.resourcemanager.hostname}:8088</value>
+		</property>
+
+		<!-- 指定nodemanager启动时加载server的方式为shuffle server -->
+		<property>
+			<name>yarn.nodemanager.aux-services</name>
+			<value>mapreduce_shuffle</value>
+		</property>
+</configuration>
