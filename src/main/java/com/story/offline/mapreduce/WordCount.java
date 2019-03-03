@@ -75,6 +75,20 @@ public class WordCount {
 
   public static void main(String[] args) throws Exception {
     Configuration conf = new Configuration();
+    System.setProperty("hadoop.home.dir", "F:\\Hadoop\\hadoop-2.7.1");
+ /*   conf.set("mapreduce.framework.name", "yarn");
+    conf.set("fs.default.name", "hdfs://192.168.5.130:9000");
+    //跨平台提交
+    conf.set("mapreduce.app-submission.cross-platform", "true");*/
+
+   /*//用maven打包程序，运行完的jar放在一个固定的路径下，然后在程序中设置
+    conf.set("mapred.jar","D:\\java\\mapreduce\\target\\mapreduce-1.0-SNAPSHOT-jar-with-dependencies.jar");*/
+
+   /* administrator没有权限访问集群上hadoop中的/tmp目录
+    这是由于本机的administrator没有操作hadoop目录的权限，需要配置hadoop_name，为方便起见就不在环境变量里面配置，直接在程序中加入：*/
+
+//    System.setProperty("HADOOP_USER_NAME", "donaldhan");
+
     String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
     if (otherArgs.length < 2) {
       System.err.println("Usage: wordcount <in> [<in>...] <out>");
